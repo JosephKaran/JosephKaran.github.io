@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOSEPH KARAN // ELECTRICAL ENGINEERING PORTFOLIO</title>
+  <style>
+    /* ==========================================================================
+       CONCRETE BRUTALIST (BÉTON BRUT) CLEAN STYLESHEET
+       Zero complex JS dependencies • 100% stable • Direct GitHub editor friendly
+       ========================================================================== */
+    :root {
+      --concrete-base: #787c80;
+      --concrete-surface: #989c9f;
+      --concrete-slab: #b2b6b9;
+      --concrete-light: #cfd2d4;
+      --concrete-dark: #373a3c;
+      --concrete-deep: #1e2022;
+      --border-black: #141516;
+      --seam-line: #4f5356;
+      --accent: #ff6d00;
+      --accent-hazard: #e6b800;
+      --accent-green: #00e676;
+      --text-main: #111213;
+      --text-muted: #3a3e42;
+      --mono: "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+      --display: "Arial Black", Impact, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--concrete-base);
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+      background-size: 24px 24px, 16px 16px, 80px 80px, 80px 80px;
+      color: var(--text-main);
+      font-family: var(--mono);
+      min-height: 100vh;
+      padding: 24px 16px;
+      line-height: 1.45;
+    }
+
+    .frame-container {
+      max-width: 1260px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Top Utility Strip */
+    .utility-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--concrete-dark);
+      color: var(--concrete-light);
+      border: 3px solid var(--border-black);
+      padding: 10px 18px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      box-shadow: 5px 5px 0px var(--concrete-deep);
+    }
+
+    /* Concrete Formwork Wall Header */
+    .concrete-slab-panel {
+      background: var(--concrete-surface);
+      border: 4px solid var(--border-black);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      position: relative;
+      padding: 28px 32px;
+    }
+
+    .concrete-slab-panel::before,
+    .concrete-slab-panel::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #1e2022 60%, #555 100%);
+      box-shadow: inset 1px 1px 2px #000, 1px 1px 1px rgba(255, 255, 255, 0.35);
+    }
+    .concrete-slab-panel::before { top: 12px; left: 12px; }
+    .concrete-slab-panel::after { bottom: 12px; right: 12px; }
+
+    .header-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .header-content { grid-template-columns: 1fr; }
+    }
+
+    h1.monument-title {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      color: var(--concrete-deep);
+      margin-bottom: 14px;
+    }
+
+    .sub-stamp {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--concrete-dark);
+      background: var(--concrete-light);
+      display: inline-block;
+      padding: 4px 10px;
+      border: 2px solid var(--border-black);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .manifesto-text {
+      font-size: 0.92rem;
+      color: var(--concrete-deep);
+      font-weight: 600;
+      border-left: 4px solid var(--border-black);
+      padding-left: 14px;
+      max-width: 680px;
+    }
+
+    .telemetry-block {
+      background: var(--concrete-slab);
+      border: 3px solid var(--border-black);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--seam-line);
+      padding-bottom: 4px;
+    }
+
+    .telemetry-key { font-weight: 700; color: var(--concrete-dark); }
+    .telemetry-val { font-weight: 900; color: var(--concrete-deep); }
+
+    /* Slots Title Bar */
+    .slots-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--concrete-deep);
+      color: var(--concrete-light);
+      border: 3px solid var(--border-black);
+      padding: 10px 20px;
+      font-family: var(--display);
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      box-shadow: 6px 6px 0px var(--concrete-dark);
+    }
+
+    /* 4-SLOT GRID */
+    .four-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 860px) {
+      .four-slots-grid { grid-template-columns: 1fr; }
+    }
+
+    .slot-card {
+      border: 4px solid var(--border-black);
+      background: var(--concrete-surface);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .slot-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 12px 12px 0px var(--concrete-deep);
+    }
+
+    .slot-bar {
+      background: var(--concrete-dark);
+      color: #fff;
+      border-bottom: 3px solid var(--border-black);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .slot-tag-active {
+      background: var(--accent);
+      color: #fff;
+      padding: 2px 8px;
+      border: 1px solid #000;
+    }
+
+    .slot-tag-vacant {
+      background: var(--seam-line);
+      color: var(--concrete-light);
+      padding: 2px 8px;
+      border: 1px dashed var(--concrete-light);
+    }
+
+    .occupied-slot { background: var(--concrete-slab); }
+    .vacant-slot { background: var(--concrete-base); opacity: 0.95; }
+
+    .blueprint-viewport {
+      height: 220px;
+      background: #2a2d30;
+      border-bottom: 3px solid var(--border-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 16px;
+      color: var(--concrete-light);
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blueprint-icon { font-size: 2.5rem; margin-bottom: 6px; }
+    .blueprint-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 4px 10px;
+      border: 1px solid var(--concrete-base);
+    }
+
+    .slot-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .project-name {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--concrete-deep);
+      text-transform: uppercase;
+    }
+
+    .project-summary {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      background: var(--concrete-surface);
+      border: 2px solid var(--border-black);
+    }
+
+    .spec-table td {
+      border: 1px solid var(--seam-line);
+      padding: 6px 8px;
+    }
+
+    .spec-table td.spec-name {
+      font-weight: 800;
+      background: var(--concrete-light);
+      width: 38%;
+      color: var(--concrete-deep);
+    }
+
+    .spec-table td.spec-val { font-weight: 700; }
+
+    .hardware-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      background: var(--concrete-dark);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border: 1px solid var(--border-black);
+      letter-spacing: 0.05em;
+    }
+
+    .slot-footer {
+      border-top: 3px solid var(--border-black);
+      padding: 12px 20px;
+      background: var(--concrete-surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vacant-viewport {
+      height: 220px;
+      background: 
+        repeating-linear-gradient(
+          -45deg,
+          #63676a,
+          #63676a 15px,
+          #585c5f 15px,
+          #585c5f 30px
+        );
+      border-bottom: 3px solid var(--border-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      color: var(--concrete-light);
+    }
+
+    .vacant-stamp {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: #fff;
+      background: var(--border-black);
+      padding: 6px 14px;
+      border: 2px solid var(--concrete-slab);
+      letter-spacing: 0.15em;
+    }
+
+    .vacant-body {
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .wireframe-box {
+      width: 100%;
+      height: 60px;
+      border: 2px dashed var(--seam-line);
+      background: rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--concrete-dark);
+      letter-spacing: 0.1em;
+    }
+
+    /* Buttons */
+    .concrete-btn {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--concrete-dark);
+      color: #fff;
+      border: 2px solid var(--border-black);
+      padding: 8px 14px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px var(--border-black);
+      transition: all 0.1s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .concrete-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--border-black);
+    }
+
+    .btn-hazard { background: var(--accent-hazard); color: #000; }
+    .btn-hazard:hover { background: #000; color: var(--accent-hazard); }
+
+    /* ==========================================================================
+       SUB-PAGES (SLOT DETAILS)
+       ========================================================================== */
+    .project-subpage {
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .project-subpage.active {
+      display: flex;
+    }
+
+    .detail-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--concrete-deep);
+      border: 3px solid var(--border-black);
+      padding: 12px 20px;
+      box-shadow: 6px 6px 0px var(--border-black);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .detail-hero-panel {
+      background: var(--concrete-surface);
+      border: 4px solid var(--border-black);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .detail-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--concrete-deep);
+    }
+
+    .photo-gallery-section {
+      background: var(--concrete-slab);
+      border: 4px solid var(--border-black);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-slab-header {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--concrete-deep);
+      color: #fff;
+      padding: 8px 16px;
+      border: 2px solid var(--border-black);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      border: 3px solid var(--border-black);
+      background: var(--concrete-surface);
+      box-shadow: 4px 4px 0px var(--concrete-deep);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-card-viewport {
+      height: 200px;
+      background: #24272a;
+      border-bottom: 2px solid var(--border-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--concrete-light);
+      padding: 12px;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .photo-caption {
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--concrete-deep);
+      background: var(--concrete-light);
+      border-top: 1px solid var(--seam-line);
+    }
+
+    .doc-section-panel {
+      background: var(--concrete-surface);
+      border: 4px solid var(--border-black);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .doc-body-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--concrete-deep);
+    }
+
+    .ascii-schematic {
+      background: #141618;
+      color: #81c784;
+      padding: 16px;
+      border: 2px solid var(--border-black);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    footer.concrete-footer {
+      background: var(--concrete-surface);
+      border: 4px solid var(--border-black);
+      box-shadow: 8px 8px 0px var(--concrete-deep);
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame-container">
+
+    <!-- ======================================================================
+         PAGE 1: MAIN MATRIX VIEW (DEFAULT)
+         ====================================================================== -->
+    <div id="view-matrix" style="display: flex; flex-direction: column; gap: 24px;">
+
+      <!-- Utility Strip -->
+      <div class="utility-strip">
+        <div>
+          <span style="background: var(--accent-hazard); color: #000; padding: 2px 6px; font-weight: 900; margin-right: 8px;">
+            BÉTON BRUT
+          </span>
+          <span>CONCRETE BRUTALIST PORTFOLIO // 4 SLOTS</span>
+        </div>
+        <div>
+          STATUS: READY // CLICK ANY SLOT TO OPEN FULL PAGE
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           EDIT YOUR BIO & HEADER HERE
+           ============================================================== -->
+      <header class="concrete-slab-panel">
+        <div class="header-content">
+          <div>
+            <h1 class="monument-title">JOSEPH KARAN</h1>
+            <div class="sub-stamp">ELECTRICAL ENGINEERING // HARDWARE SHOWCASE</div>
+            <p class="manifesto-text">
+              Undergraduate Electrical Engineering researcher at Rutgers University. Heavy focus on physical computing, microcontroller motor actuation, embedded micro-robotics, and precision additive fabrication.
+            </p>
+          </div>
+
+          <div class="telemetry-block">
+            <div class="telemetry-row">
+              <span class="telemetry-key">MATERIAL SPEC</span>
+              <span class="telemetry-val">BÉTON BRUT / MONO</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-key">TOTAL SLOTS</span>
+              <span class="telemetry-val">4 SLOTS FIXED</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-key">OCCUPIED</span>
+              <span class="telemetry-val" style="color: var(--accent);">1 / 4 [RC FORKLIFT]</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-key">AVAILABLE</span>
+              <span class="telemetry-val">3 SLOTS VACANT</span>
+            </div>
+            <div class="telemetry-row" style="border-bottom: none;">
+              <span class="telemetry-key">INSTITUTION</span>
+              <span class="telemetry-val">RUTGERS SOE</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Section Title -->
+      <div class="slots-title-bar">
+        <span>PROJECT MATRIX [CLICK ANY SLOT TO OPEN FULL PAGE]</span>
+        <span style="font-size: 0.85rem; font-family: var(--mono);">SYSTEM INDEX: PRJ-01 TO PRJ-04</span>
+      </div>
+
+      <!-- 4-SLOT GRID -->
+      <main class="four-slots-grid">
+
+        <!-- ==============================================================
+             SLOT 01: POPULATED (RC FORKLIFT)
+             ============================================================== -->
+        <a href="#subpage-1" class="slot-card occupied-slot" onclick="openPage(1); return false;">
+          <div class="slot-bar">
+            <span>SLOT_01 // POPULATED</span>
+            <span class="slot-tag-active">CLICK FOR FULL PAGE →</span>
+          </div>
+
+          <div class="blueprint-viewport">
+            <div class="blueprint-icon">🚜</div>
+            <div class="blueprint-tag">ESP32 // DRV8833 // N20 MOTOR DRIVE</div>
+            <div style="font-size: 0.75rem; margin-top: 6px; color: #a0a4a8;">CAD: BAMBU A1 MINI 3D PLA+ CHASSIS</div>
+          </div>
+
+          <div class="slot-body">
+            <h2 class="project-name">ESP32 Mechatronic RC Forklift & Skidsteer</h2>
+            <p class="project-summary">
+              Autonomous/RC industrial scale forklift platform with precision dual-motor differential drive kinematics and a motorized vertical rack-and-pinion mast.
+            </p>
+
+            <table class="spec-table">
+              <tr>
+                <td class="spec-name">MCU CORE</td>
+                <td class="spec-val">ESP32 Dual-Core Tensilica (240 MHz)</td>
+              </tr>
+              <tr>
+                <td class="spec-name">DRIVE MOTORS</td>
+                <td class="spec-val">2x N20 6V Micro Metal Geared DC Motors</td>
+              </tr>
+              <tr>
+                <td class="spec-name">MOTOR DRIVER</td>
+                <td class="spec-val">DRV8833 Dual MOSFET Low-Voltage H-Bridge</td>
+              </tr>
+              <tr>
+                <td class="spec-name">MAST ACTUATOR</td>
+                <td class="spec-val">MG90S Metal Gear Micro Servo</td>
+              </tr>
+            </table>
+
+            <div class="hardware-chips">
+              <span class="chip">ESP32</span>
+              <span class="chip">DRV8833</span>
+              <span class="chip">N20 MOTORS</span>
+              <span class="chip">MG90S SERVO</span>
+              <span class="chip">3D PRINTING</span>
+            </div>
+          </div>
+
+          <div class="slot-footer">
+            <span class="concrete-btn btn-hazard">→ OPEN FULL PROJECT PAGE & PHOTOS</span>
+            <span style="font-size: 0.8rem; font-weight: 800;">VERIFIED SPEC</span>
+          </div>
+        </a>
+
+        <!-- ==============================================================
+             SLOT 02: VACANT
+             ============================================================== -->
+        <a href="#subpage-2" class="slot-card vacant-slot" onclick="openPage(2); return false;">
+          <div class="slot-bar">
+            <span>SLOT_02 // UNALLOCATED</span>
+            <span class="slot-tag-vacant">CLICK TO OPEN →</span>
+          </div>
+
+          <div class="vacant-viewport">
+            <div class="vacant-stamp">SLOT 02 EMPTY</div>
+            <div style="font-size: 0.75rem; letter-spacing: 0.1em;">CLICK TO OPEN DEDICATED PAGE</div>
+          </div>
+
+          <div class="vacant-body">
+            <div style="font-family: var(--display); font-size: 1.1rem; color: var(--concrete-deep); text-transform: uppercase;">
+              [ EXPANSION BAY 02 ]
+            </div>
+            <p style="font-size: 0.85rem; color: var(--concrete-dark); max-width: 320px; font-weight: 600;">
+              Click to open this dedicated project page to add titles, photo galleries, and technical logs.
+            </p>
+            <div class="wireframe-box">
+              // HARDWARE SLOT 02: STANDBY //
+            </div>
+          </div>
+
+          <div class="slot-footer" style="background: var(--concrete-base); justify-content: space-between;">
+            <span class="concrete-btn">→ OPEN PROJECT PAGE 02</span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--concrete-dark);">AWAITING ALLOCATION</span>
+          </div>
+        </a>
+
+        <!-- ==============================================================
+             SLOT 03: VACANT
+             ============================================================== -->
+        <a href="#subpage-3" class="slot-card vacant-slot" onclick="openPage(3); return false;">
+          <div class="slot-bar">
+            <span>SLOT_03 // UNALLOCATED</span>
+            <span class="slot-tag-vacant">CLICK TO OPEN →</span>
+          </div>
+
+          <div class="vacant-viewport">
+            <div class="vacant-stamp">SLOT 03 EMPTY</div>
+            <div style="font-size: 0.75rem; letter-spacing: 0.1em;">CLICK TO OPEN DEDICATED PAGE</div>
+          </div>
+
+          <div class="vacant-body">
+            <div style="font-family: var(--display); font-size: 1.1rem; color: var(--concrete-deep); text-transform: uppercase;">
+              [ EXPANSION BAY 03 ]
+            </div>
+            <p style="font-size: 0.85rem; color: var(--concrete-dark); max-width: 320px; font-weight: 600;">
+              Click to open this dedicated project page to add titles, photo galleries, and technical logs.
+            </p>
+            <div class="wireframe-box">
+              // HARDWARE SLOT 03: STANDBY //
+            </div>
+          </div>
+
+          <div class="slot-footer" style="background: var(--concrete-base); justify-content: space-between;">
+            <span class="concrete-btn">→ OPEN PROJECT PAGE 03</span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--concrete-dark);">AWAITING ALLOCATION</span>
+          </div>
+        </a>
+
+        <!-- ==============================================================
+             SLOT 04: VACANT
+             ============================================================== -->
+        <a href="#subpage-4" class="slot-card vacant-slot" onclick="openPage(4); return false;">
+          <div class="slot-bar">
+            <span>SLOT_04 // UNALLOCATED</span>
+            <span class="slot-tag-vacant">CLICK TO OPEN →</span>
+          </div>
+
+          <div class="vacant-viewport">
+            <div class="vacant-stamp">SLOT 04 EMPTY</div>
+            <div style="font-size: 0.75rem; letter-spacing: 0.1em;">CLICK TO OPEN DEDICATED PAGE</div>
+          </div>
+
+          <div class="vacant-body">
+            <div style="font-family: var(--display); font-size: 1.1rem; color: var(--concrete-deep); text-transform: uppercase;">
+              [ EXPANSION BAY 04 ]
+            </div>
+            <p style="font-size: 0.85rem; color: var(--concrete-dark); max-width: 320px; font-weight: 600;">
+              Click to open this dedicated project page to add titles, photo galleries, and technical logs.
+            </p>
+            <div class="wireframe-box">
+              // HARDWARE SLOT 04: STANDBY //
+            </div>
+          </div>
+
+          <div class="slot-footer" style="background: var(--concrete-base); justify-content: space-between;">
+            <span class="concrete-btn">→ OPEN PROJECT PAGE 04</span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--concrete-dark);">AWAITING ALLOCATION</span>
+          </div>
+        </a>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="concrete-footer">
+        <div>
+          <div style="font-family: var(--display); font-size: 1rem;">JOSEPH KARAN // BÉTON BRUT PORTFOLIO</div>
+          <div style="font-size: 0.75rem; color: var(--concrete-dark); margin-top: 4px;">
+            CLEAN GITHUB-READY ARCHITECTURE • 100% STABLE • ZERO FRAGILE SCRIPTS
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <a href="mailto:dodeffkaran@gmail.com" class="concrete-btn">EMAIL</a>
+          <a href="https://linkedin.com/in/joseph-karan-05986a293" target="_blank" rel="noopener noreferrer" class="concrete-btn">LINKEDIN</a>
+        </div>
+      </footer>
+
+    </div><!-- End view-matrix -->
+
+
+    <!-- ======================================================================
+         PAGE 2: DEDICATED SUB-PAGE FOR SLOT 1 (RC FORKLIFT)
+         ====================================================================== -->
+    <div id="subpage-1" class="project-subpage">
+      <nav class="detail-nav-bar">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← BACK TO 4-SLOT MATRIX
+        </button>
+        <span style="color: var(--concrete-light); font-size: 0.8rem; font-weight: 800;">
+          SLOT_01 // RC FORKLIFT & SKIDSTEER
+        </span>
+      </nav>
+
+      <section class="detail-hero-panel">
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--concrete-dark); letter-spacing: 0.1em;">
+          PROJECT MATRIX // HARDWARE SPECIFICATION // ARTIFACT #01
+        </div>
+        <h1 class="detail-title">ESP32 MECHATRONIC RC FORKLIFT & SKIDSTEER</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="chip" style="background: var(--accent);">ACTIVE HARDWARE</span>
+          <span class="chip">ESP32 EMBEDDED</span>
+          <span class="chip">DRV8833 DUAL H-BRIDGE</span>
+          <span class="chip">BAMBU A1 MINI PLA+</span>
+          <span class="chip">RUTGERS SOE</span>
+        </div>
+      </section>
+
+      <!-- PHOTO GALLERY (REPLACE OR ADD IMAGES HERE) -->
+      <section class="photo-gallery-section">
+        <div class="section-slab-header">
+          <span>📷 PROJECT PHOTO GALLERY & MEDIA BAYS</span>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">🚜</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 01: VEHICLE PROFILE ]</div>
+            </div>
+            <div class="photo-caption">
+              Photo 01: Fully assembled RC Forklift chassis with vertical lift mast and PLA+ forks.
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">⚡</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 02: MOTOR DRIVER & ESP32 ]</div>
+            </div>
+            <div class="photo-caption">
+              Photo 02: DRV8833 dual MOSFET H-bridge wired to ESP32 PWM pins and 2S LiPo battery.
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">🛠️</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 03: 3D CAD PLA MECHANISM ]</div>
+            </div>
+            <div class="photo-caption">
+              Photo 03: Rack-and-pinion transmission driven by MG90S metal-gear servo.
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">📐</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 04: ELECTRICAL SCHEMATIC ]</div>
+            </div>
+            <div class="photo-caption">
+              Photo 04: Complete power distribution loop, buck regulator, and decoupling capacitors.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCUMENTATION -->
+      <section class="doc-section-panel">
+        <div class="section-slab-header">01 // EXECUTIVE SUMMARY & ENGINEERING OBJECTIVE</div>
+        <p class="doc-body-text">
+          This project focuses on the design, fabrication, and firmware architecture of a scale mechatronic industrial forklift. The goal was to engineer a robust mobile robot capable of both high-torque differential drive locomotion and linear mast elevation, all running on an embedded ESP32 microcontroller with customized power management and wireless telemetry.
+        </p>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">02 // HARDWARE ARCHITECTURE & BILL OF MATERIALS</div>
+        <table class="spec-table">
+          <tr>
+            <td class="spec-name">MICROCONTROLLER</td>
+            <td class="spec-val">ESP32 Dev Module (Dual-Core Tensilica Xtensa 32-bit LX6 @ 240 MHz)</td>
+          </tr>
+          <tr>
+            <td class="spec-name">MOTOR DRIVER</td>
+            <td class="spec-val">Texas Instruments DRV8833 Dual MOSFET H-Bridge (1.5A RMS per channel)</td>
+          </tr>
+          <tr>
+            <td class="spec-name">DRIVE ACTUATION</td>
+            <td class="spec-val">2x N20 6V Micro Metal Geared Motors (100:1 gear ratio, steel gears)</td>
+          </tr>
+          <tr>
+            <td class="spec-name">MAST ELEVATION</td>
+            <td class="spec-val">TowerPro MG90S Micro Servo (1.8 kg-cm torque, metal gear train)</td>
+          </tr>
+          <tr>
+            <td class="spec-name">POWER SUPPLY</td>
+            <td class="spec-val">2S LiPo 7.4V 450mAh Pack + Step-Down Buck Converter (5V output)</td>
+          </tr>
+          <tr>
+            <td class="spec-name">CHASSIS & FORKS</td>
+            <td class="spec-val">Additive PLA+ (Bambu Lab A1 Mini, 0.16mm layer height, 4 wall perimeters)</td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">03 // CIRCUIT WIRING SCHEMATIC & MOTOR LOGIC</div>
+        <pre class="ascii-schematic">
++-------------------------------------------------------------------------+
+|                  ESP32 MECHATRONIC RC FORKLIFT SCHEMATIC                |
++-------------------------------------------------------------------------+
+
+  [ 2S LiPo 7.4V ] --------+--------------> [ Buck Regulator 5V / 3.3V ]
+                           |                               |
+                           |                               v
+                           |                    +---------------------+
+                           |                    |   ESP32 Dev Module  |
+                           |                    | (Dual-Core 240MHz)  |
+                           |                    +----------+----------+
+                           |                               |
+                           |              PWM Channels     |
+                           |              (GPIO 18, 19,    | Servo Signal
+                           |               GPIO 21, 22)    | (GPIO 23)
+                           |                    |          |
+                           v                    v          v
+                  +------------------+         |   +---------------+
+                  |  DRV8833 Dual    |         |   |  MG90S Servo  |
+                  |  H-Bridge Driver |<--------+   |  (Rack/Pinion |
+                  +--------+---------+             |   Mast Lift)  |
+                           |                       +---------------+
+              +------------+------------+
+              |                         |
+              v                         v
+       [ Left N20 Motor ]       [ Right N20 Motor ]
+       (Differential Drive)     (Differential Drive)
+        </pre>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">04 // FABRICATION & TESTING FINDINGS</div>
+        <p class="doc-body-text">
+          • <strong>Mechanical Tolerancing</strong>: Printed on a Bambu Lab A1 Mini with a textured PEI spring steel sheet. Mast rack-and-pinion clearances were calibrated to 0.15mm backlash to ensure smooth vertical travel without binding under 200g payload loads.<br>
+          • <strong>Inductive Decoupling</strong>: 100uF electrolytic and 0.1uF ceramic capacitors were soldered across the motor terminals and power rails to prevent voltage drops and flyback spikes from causing ESP32 brownouts.<br>
+          • <strong>Firmware Stability</strong>: Hardware PWM timers were configured at 2 kHz frequency, preventing audible motor coil whining while providing smooth low-speed positioning.
+        </p>
+      </section>
+
+      <footer class="concrete-footer">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← RETURN TO 4-SLOT MATRIX
+        </button>
+      </footer>
+    </div>
+
+
+    <!-- ======================================================================
+         PAGE 3: SUB-PAGE FOR SLOT 2 (EXPANSION BAY 02)
+         ====================================================================== -->
+    <div id="subpage-2" class="project-subpage">
+      <nav class="detail-nav-bar">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← BACK TO 4-SLOT MATRIX
+        </button>
+        <span style="color: var(--concrete-light); font-size: 0.8rem; font-weight: 800;">
+          SLOT_02 // HARDWARE SHOWCASE
+        </span>
+      </nav>
+
+      <section class="detail-hero-panel">
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--concrete-dark); letter-spacing: 0.1em;">
+          PROJECT MATRIX // HARDWARE SPECIFICATION // ARTIFACT #02
+        </div>
+        <h1 class="detail-title">EXPANSION BAY 02: PROJECT TITLE</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="chip" style="background: var(--accent);">STANDBY</span>
+          <span class="chip">CIRCUITS & SYSTEMS</span>
+          <span class="chip">HARDWARE</span>
+        </div>
+      </section>
+
+      <section class="photo-gallery-section">
+        <div class="section-slab-header">📷 PROJECT PHOTO GALLERY & MEDIA BAYS</div>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">📸</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 01 PLACEHOLDER ]</div>
+            </div>
+            <div class="photo-caption">Photo 01: Description and engineering details.</div>
+          </div>
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">📸</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 02 PLACEHOLDER ]</div>
+            </div>
+            <div class="photo-caption">Photo 02: Description and engineering details.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">01 // EXECUTIVE SUMMARY & ENGINEERING OBJECTIVE</div>
+        <p class="doc-body-text">
+          Add your project overview, engineering challenges, and technical methodology here.
+        </p>
+      </section>
+
+      <footer class="concrete-footer">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← RETURN TO 4-SLOT MATRIX
+        </button>
+      </footer>
+    </div>
+
+
+    <!-- ======================================================================
+         PAGE 4: SUB-PAGE FOR SLOT 3 (EXPANSION BAY 03)
+         ====================================================================== -->
+    <div id="subpage-3" class="project-subpage">
+      <nav class="detail-nav-bar">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← BACK TO 4-SLOT MATRIX
+        </button>
+        <span style="color: var(--concrete-light); font-size: 0.8rem; font-weight: 800;">
+          SLOT_03 // HARDWARE SHOWCASE
+        </span>
+      </nav>
+
+      <section class="detail-hero-panel">
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--concrete-dark); letter-spacing: 0.1em;">
+          PROJECT MATRIX // HARDWARE SPECIFICATION // ARTIFACT #03
+        </div>
+        <h1 class="detail-title">EXPANSION BAY 03: PROJECT TITLE</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="chip" style="background: var(--accent);">STANDBY</span>
+          <span class="chip">DIGITAL LOGIC</span>
+          <span class="chip">FPGA</span>
+        </div>
+      </section>
+
+      <section class="photo-gallery-section">
+        <div class="section-slab-header">📷 PROJECT PHOTO GALLERY & MEDIA BAYS</div>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">📸</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 01 PLACEHOLDER ]</div>
+            </div>
+            <div class="photo-caption">Photo 01: Description and engineering details.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">01 // EXECUTIVE SUMMARY & ENGINEERING OBJECTIVE</div>
+        <p class="doc-body-text">
+          Add your project overview, engineering challenges, and technical methodology here.
+        </p>
+      </section>
+
+      <footer class="concrete-footer">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← RETURN TO 4-SLOT MATRIX
+        </button>
+      </footer>
+    </div>
+
+
+    <!-- ======================================================================
+         PAGE 5: SUB-PAGE FOR SLOT 4 (EXPANSION BAY 04)
+         ====================================================================== -->
+    <div id="subpage-4" class="project-subpage">
+      <nav class="detail-nav-bar">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← BACK TO 4-SLOT MATRIX
+        </button>
+        <span style="color: var(--concrete-light); font-size: 0.8rem; font-weight: 800;">
+          SLOT_04 // HARDWARE SHOWCASE
+        </span>
+      </nav>
+
+      <section class="detail-hero-panel">
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--concrete-dark); letter-spacing: 0.1em;">
+          PROJECT MATRIX // HARDWARE SPECIFICATION // ARTIFACT #04
+        </div>
+        <h1 class="detail-title">EXPANSION BAY 04: PROJECT TITLE</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="chip" style="background: var(--accent);">STANDBY</span>
+          <span class="chip">ANALOG CIRCUITS</span>
+          <span class="chip">POWER</span>
+        </div>
+      </section>
+
+      <section class="photo-gallery-section">
+        <div class="section-slab-header">📷 PROJECT PHOTO GALLERY & MEDIA BAYS</div>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <div class="photo-card-viewport">
+              <div style="font-size: 2.2rem; margin-bottom: 6px;">📸</div>
+              <div style="font-weight: 800; font-size: 0.8rem;">[ PHOTO 01 PLACEHOLDER ]</div>
+            </div>
+            <div class="photo-caption">Photo 01: Description and engineering details.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section-panel">
+        <div class="section-slab-header">01 // EXECUTIVE SUMMARY & ENGINEERING OBJECTIVE</div>
+        <p class="doc-body-text">
+          Add your project overview, engineering challenges, and technical methodology here.
+        </p>
+      </section>
+
+      <footer class="concrete-footer">
+        <button class="concrete-btn btn-hazard" onclick="openPage('matrix');">
+          ← RETURN TO 4-SLOT MATRIX
+        </button>
+      </footer>
+    </div>
+
+  </div><!-- End frame-container -->
+
+  <!-- ULTRA-SIMPLE, 10-LINE ROCK-SOLID NAVIGATION (ZERO DEPENDENCIES) -->
+  <script>
+    function openPage(target) {
+      // Hide matrix and all subpages
+      document.getElementById('view-matrix').style.display = 'none';
+      document.querySelectorAll('.project-subpage').forEach(p => p.classList.remove('active'));
+
+      if (target === 'matrix') {
+        document.getElementById('view-matrix').style.display = 'flex';
+      } else {
+        const pageEl = document.getElementById('subpage-' + target);
+        if (pageEl) pageEl.classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle browser back/forward buttons or direct hash links (#subpage-1)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#subpage-')) {
+        const id = hash.replace('#subpage-', '');
+        openPage(id);
+      } else {
+        openPage('matrix');
+      }
+    });
+
+    // Check hash on initial load
+    if (window.location.hash.startsWith('#subpage-')) {
+      openPage(window.location.hash.replace('#subpage-', ''));
+    }
+  </script>
+</body>
+</html>
